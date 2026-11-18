@@ -1,0 +1,36 @@
+Therm-De — Proprietary Software Licence
+
+Copyright (c) 2026 Dr. Vignesh Nayak Ullal. All rights reserved.
+
+1. Ownership. Therm-De (the "Software"), meaning all source code, object code,
+   user interface, documentation and associated files in this repository other
+   than the third-party components listed in section 5, is the exclusive
+   property of the copyright holder.
+
+2. No licence without permission. No person or organisation may use, run,
+   copy, modify, merge, publish, distribute, sublicense, host, sell, or create
+   derivative works of the Software, in whole or in part, without the prior
+   written permission of the copyright holder. Viewing this repository or the
+   hosted application does not grant any such permission.
+
+3. Permitted users. Persons to whom the copyright holder has given written
+   permission may use the Software solely on the terms of that permission.
+   Permission is personal, non-transferable and may be withdrawn at any time.
+
+4. No warranty. The Software is provided "as is", without warranty of any
+   kind, express or implied, including fitness for a particular purpose and
+   accuracy of results. Analysis results must be independently verified
+   before being relied upon for design, safety or commercial decisions. To the
+   maximum extent permitted by law, the copyright holder is not liable for any
+   claim, damages or other liability arising from the Software or its use.
+
+5. Third-party components. The files under vendor/ are the property of their
+   respective authors and remain under their own licences: three.js,
+   three-mesh-bvh, three-bvh-csg, replicad and cdt2d with its dependencies
+   (MIT Licence, see vendor/cdt2d.LICENSE.txt); occt-import-js,
+   replicad-opencascadejs and Open CASCADE Technology (GNU LGPL 2.1, see
+   vendor/occt and vendor/replicad); fTetWild and float-tetwild-wasm
+   (Mozilla Public License 2.0, see vendor/tetwild). Nothing in this
+   licence restricts rights granted by those licences in those components.
+
+Requests for permission: nayak.vignesh113@gmail.com

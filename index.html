@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Therm-De — thermal and mechanical design, analysis and simulation</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/app.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/three.module.js", "three-mesh-bvh": "./vendor/three-mesh-bvh.js", "three-bvh-csg": "./vendor/three-bvh-csg.js" } }
+</script>
+</head>
+<body>
+<header id="top">
+  <div class="brand"><span class="logo">T</span>Therm-De <span id="ver" class="muted" style="font-weight:400;font-size:12px" title="Version of the app this browser is running">v8 · 17 Nov 2026</span></div>
+  <div class="tb">
+    <button data-act="new" title="Start an empty model">New</button>
+    <button data-act="open" title="Open a saved Therm-De project (.thermde.json)">Open</button>
+    <button data-act="save" title="Save the model, loads and settings">Save</button>
+    <button data-act="undo" title="Undo (Ctrl+Z)">↶ Undo</button>
+    <button data-act="redo" title="Redo (Ctrl+Y)">↷ Redo</button>
+    <span class="sep"></span>
+    <button data-act="import" title="STEP, IGES, BREP, STL or OBJ">Import CAD</button>
+    <select id="exportCad" title="Export the CAD model"><option value="">Export CAD…</option><option value="step">STEP (.step)</option><option value="stl">STL (.stl)</option><option value="obj">Wavefront (.obj)</option></select>
+    <span class="sep"></span>
+    <select id="examples" title="Load a ready-made, solved example"><option value="">Examples…</option>
+      <option value="bracket">Bracket under load — static, 3D</option>
+      <option value="heatsink">Heat sink with chip — thermal, assembly</option>
+      <option value="bimetal">Bimetal strip — thermal stress, assembly</option>
+      <option value="plate">Plate with hole — static, 2D</option>
+      <option value="quench">Quench probe cooling — transient, 3D</option>
+      <option value="strip">Thin strip — large deflection, 3D</option>
+      <option value="punch">Punch on a block — sliding contact, assembly</option>
+      <option value="crackhole">Crack growing towards a hole — own part, 2D</option>
+      <option value="ct">CT specimen — crack opening &amp; fatigue growth</option>
+    </select>
+  </div>
+  <div class="tb right">
+    <div class="seg" id="dimSeg" title="3D solids, or a 2D analysis of the XY cross-section"><button data-dim="3" class="on">3D</button><button data-dim="2">2D</button></div>
+    <span class="sep"></span>
+    <button data-view="iso">Iso</button><button data-view="front">Front</button><button data-view="top">Top</button><button data-view="right">Right</button><button data-view="fit">Fit</button>
+    <span class="sep"></span>
+    <button data-act="section" id="secBtn" title="Cut the model with a plane to see inside">Section</button>
+    <span class="sep"></span>
+    <button data-act="help">Help</button>
+  </div>
+</header>
+<nav id="steps"></nav>
+<main>
+  <aside id="panel"></aside>
+  <section id="view">
+    <div id="canvas"></div>
+    <div id="legend"></div>
+    <div id="hint"></div>
+    <div id="lblMax" class="ext">Max</div><div id="lblMin" class="ext">Min</div>
+    <div id="probe"></div>
+    <div id="secPanel"></div>
+    <div id="busy"><div class="box"><div id="busyMsg">Working…</div><div class="bar"><i id="busyBar"></i></div><button data-act="cancelSolve" id="busyCancel" style="margin-top:12px">Cancel</button></div></div>
+  </section>
+</main>
+<div id="modal"></div>
+<div id="toast"></div>
+<input type="file" id="fileImport" accept=".step,.stp,.iges,.igs,.brep,.stl,.obj" multiple hidden>
+<input type="file" id="fileOpen" accept=".json" hidden>
+<script type="module" src="auth.js"></script>
+</body>
+</html>
