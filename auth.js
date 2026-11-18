@@ -71,7 +71,7 @@ async function openApp() {
 async function start() {
   if (!gate) gate = shell();
   if (!store.get('token')) return showLogin();
-  try { const s = await api('/me'); store.set('user', JSON.stringify({ name: s.name, email: s.email, admin: s.admin }));
+  try { const s = await api('/me'); if (s.token) store.set('token', s.token); store.set('user', JSON.stringify({ name: s.name, email: s.email, admin: s.admin }));
     if (s.status === 'approved') return openApp(); if (s.status === 'pending') return showPending();
     store.set('token', null); return showLogin('in', 'Access to Therm-De was not approved for this account.'); }
   catch (e) { store.set('token', null); return showLogin('in', e.status === 401 ? 'Your session ended. Please sign in again.' : 'The sign-in service could not be reached. Check the connection and reload.'); }
